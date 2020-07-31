@@ -120,6 +120,7 @@ int main()
     // ----------------------------------
     // CHECK
     // Check solution (walk tree and print out relationships)
+    // ----------------------------------
     check(root);
 
 
