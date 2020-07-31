@@ -22,22 +22,22 @@ bool checkIfHasConnections(TreeNode* node) {
     return (node->left != NULL || node->right != NULL);
 }
 
-void iterStep(TreeNode* newOrigin, TreeNode* leftIn, TreeNode* rightIn) {
+void iterStep(TreeNode* newOrigin, TreeNode* rightIn) {
     TreeNode* rootLeft = newOrigin->left;
     TreeNode* rootRight = newOrigin->right;
 
     if (rootLeft != NULL) {
         if (rootLeft->left != NULL)
-            iterStep(rootLeft, newOrigin, newOrigin->right);
+            iterStep(rootLeft, newOrigin->right);
         rootLeft->right = rootRight;
     }
 
     if (rootRight != NULL) {
         if (checkIfHasConnections(rootRight)) {
             if (rightIn != NULL)
-                iterStep(rootRight, newOrigin, rightIn->left);
+                iterStep(rootRight, rightIn->left);
             else
-                iterStep(rootRight, newOrigin, NULL);
+                iterStep(rootRight, NULL);
         }
 
         if (rightIn != NULL) {
@@ -51,7 +51,7 @@ void iterStep(TreeNode* newOrigin, TreeNode* leftIn, TreeNode* rightIn) {
 
 
 void convertToRightSiblingTree(TreeNode* root) {
-    iterStep(root, NULL, NULL);
+    iterStep(root, NULL);
     if (root->right != NULL)
         root->right = NULL;
 }
