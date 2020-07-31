@@ -5,8 +5,8 @@ class TreeNode {
 public:
     int value;
 
-    TreeNode *left = nullptr;
-    TreeNode *right = nullptr;
+    TreeNode *left = NULL;
+    TreeNode *right = NULL;
 
     TreeNode(int value) {this->value = value;};
 
