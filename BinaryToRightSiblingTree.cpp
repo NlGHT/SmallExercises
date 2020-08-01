@@ -43,6 +43,8 @@ void iterStep(TreeNode* newOrigin, TreeNode* rightIn) {
         if (rightIn != NULL) {
             if (rightIn->left != NULL)
                 rootRight->right = rightIn->left;
+            else
+                rootRight->right = NULL;
         } else {
             rootRight->right = NULL;
         }
