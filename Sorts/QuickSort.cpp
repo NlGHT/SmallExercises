@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     std::cout << "Repetition count: " << repetitionTimes << std::endl;
 
     auto timeStart = std::chrono::high_resolution_clock::now();
-    for (int i = 0; i < repetitionTimes; i++) {
+    for (size_t i = 0; i < repetitionTimes; i++) {
         std::random_shuffle(vals, vals+length);
         quickSort(vals, 0, length-1);
     }
@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
 
     timeStart = std::chrono::high_resolution_clock::now();
     std::random_shuffle(vals, vals+length);
-    for (int i = 0; i < repetitionTimes; i++) {
+    for (size_t i = 0; i < repetitionTimes; i++) {
         std::random_shuffle(vals, vals+length);
         std::sort(vals, vals+length);
     }
